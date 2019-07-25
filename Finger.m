@@ -34,9 +34,7 @@ classdef Finger < handle
            %obj.FingerCoordinates = getFingerCoordinates(obj, zeros(1, Joints));
         end
         
-        function Configure(obj, Joint
-            
-            Angles)
+        function Configure(obj, JointAngles)
             %METHOD1 Summary of this method goes here
             %   Detailed explanation goes here
             
