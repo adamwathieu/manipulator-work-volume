@@ -2,7 +2,7 @@
 %Author:  Adam Wathieu
 %Date:    June 11, 2019
 %Mentor:  Joe Falco
-%Project: Volumetrization of Robotic Hands.
+%Project: Investigating the Standardization of Robotic Manipulators
 %Robotic Hand: Schunk Dexterous Hand
 %
 %
