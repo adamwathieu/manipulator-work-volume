@@ -1,16 +1,17 @@
 %v_001.m 
-%author:  Adam Wathieu
+%Author:  Adam Wathieu
 %Date:    June 11, 2019
 %Mentor:  Joe Falco
 %Project: Volumetrization of Robotic Hands.
+%Robotic Hand: Schunk Dexterous Hand
 %
 %
 %DESCRIPTION
 %This is first program written for the project. I was experimenting with
 %the Robotics Toolbox and its forward kinematics functions (more on that 
-%below and in documentation). You input the angles of the joints, and it
-%gives you a plot of the coordinates of the fingers, and a polyhedron and
-%its volume.
+%below and in documentation). You input the angles of the Schunk Dexterous 
+%Hand joints, and it gives you a plot of the coordinates of the fingers, 
+%and a polyhedron and its volume.
 
 
 
