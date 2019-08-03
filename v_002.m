@@ -1,3 +1,15 @@
+%v_002.m 
+%Author:  Adam Wathieu
+%Date:    June 18, 2019
+%Mentor:  Joe Falco
+%Project: Investigating the Standardization of Robotic Manipulators
+%Robotic Hand: Schunk Dexterous Hand
+%
+%
+%DESCRIPTION
+%This is second program written for the project...
+
+
 A1 = 98; %length from joint 1 to joint 2 (hypothetically), constant
 A2 = 86.5; %length from joint 2 to joint 3, constant 
 A3 = 68.5; %length from joint 3 to fingertip, constant 
