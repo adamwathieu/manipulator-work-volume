@@ -142,8 +142,8 @@ lineF1 = line(criticalPointsF1(:,1), criticalPointsF1(:,2), criticalPointsF1(:,3
 lineF2 = line(criticalPointsF2(:,1), criticalPointsF2(:,2), criticalPointsF2(:,3))
 lineF3 = line(criticalPointsF3(:,1), criticalPointsF3(:,2), criticalPointsF3(:,3))
 
-%creates bounds of polyhedron, and plots it
+%creates faces of polyhedron, and plots it
 shp = alphaShape(criticalPoints);
 h = plot(shp);
-volume(shp)
+volume(shp) %in mm^3
 volume(shp)/16387.064 %volume in inches
