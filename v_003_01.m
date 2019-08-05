@@ -8,12 +8,12 @@
 %
 %DESCRIPTION
 %This is third program written for the project. This is my first attempt at
-%finding the largest polyhedron that the SDH was capable of holding. Later
-%programs (v_003_02.m, v_003_03.m) provide a more efficient way of finding 
-%the same shape. This program finds the largest polyhedron by iterating 
-%through all joint angles, and computing the computations described in 
-%v_002.m. Please look through programs written prior to this one to 
-%understand the extent of the code.
+%finding the largest polyhedron that the SDH is capable of holding. Later
+%programs (v_003_03.m) provide a more efficient way of finding the same 
+%shape. This program finds the largest polyhedron by iterating through all 
+%joint angles, and computing the computations described in v_002.m. 
+%Please look through programs written prior to this one to understand the 
+%extent of the code.
 
 A1 = 98; %length from joint 1 to joint 2 (hypothetically), constant
 A2 = 86.5; %length from joint 2 to joint 3, constant 
