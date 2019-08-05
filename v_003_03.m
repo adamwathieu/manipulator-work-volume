@@ -1,13 +1,13 @@
 %v_003_03.m 
 %Author:  Adam Wathieu
-%Date:    June 22, 2019
+%Date:    July 6, 2019
 %Mentor:  Joe Falco
 %Project: Investigating the Standardization of Robotic Manipulators
 %Robotic Hand: Schunk Dexterous Hand
 %
 %
 %DESCRIPTION
-%This is fourth program written for the project. This is my second attempt 
+%This is fifth program written for the project. This is my third attempt 
 %at finding the largest polyhedron that the SDH is capable of holding. 
 %This program finds the largest polyhedron based off of results from 
 %v_003_01.m. Based off the largest angles given by v_003_01.m, in this
