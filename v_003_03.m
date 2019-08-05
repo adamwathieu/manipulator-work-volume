@@ -1,3 +1,22 @@
+%v_003_03.m 
+%Author:  Adam Wathieu
+%Date:    June 22, 2019
+%Mentor:  Joe Falco
+%Project: Investigating the Standardization of Robotic Manipulators
+%Robotic Hand: Schunk Dexterous Hand
+%
+%
+%DESCRIPTION
+%This is fourth program written for the project. This is my second attempt 
+%at finding the largest polyhedron that the SDH is capable of holding. 
+%This program finds the largest polyhedron based off of results from 
+%v_003_01.m. Based off the largest angles given by v_003_01.m, in this
+%program I span through those same angles, but with greater precision, to
+%find an even bigger volume. Since I am iterating though less angles while
+%also increasing the precision, this program has similar running time as
+%V_003_01.m. Please look through programs written prior to this one to 
+%understand the extent of the code.
+
 A1 = 98; %length from joint 1 to joint 2 (hypothetically), constant
 A2 = 86.5; %length from joint 2 to joint 3, constant 
 A3 = 68.5; %length from joint 3 to fingertip, constant 
@@ -254,98 +273,6 @@ lineF3_1 = line(criticalPointsF3(1:2,1), criticalPointsF3(1:2,2), criticalPoints
 lineF3_2 = line(criticalPointsF3(2:3,1), criticalPointsF3(2:3,2), criticalPointsF3(2:3,3));
 %-----------------------------------------------------------------------------------%
 
-%---------------CREATING INTERMEDIATE POINTS FOR TRIANGULAR PRISMS------------------%
-%------FINGER 1 (BOTTOM LEFT)--------%
-%{
-temp = criticalPointsF1(2, :) - criticalPointsF1(1, :);
-n = temp/norm(temp) %unit vector of first line of finger 1
-n = n*17.5; %17.5 is a constant: it is the length from 0 coordinate to the start of grip sensors along line
-triCoord1 = [criticalPointsF1(1, :) + n; criticalPointsF1(2, :) - n];
-scatter3(triCoord1(:,1), triCoord1(:,2), triCoord1(:,3), 'filled')
-%}
-%-----------------------------------------------------------------------------------%
-%{
-test = pi/2;
-test2 = -test;
-test3 = test;
-A7 = 17.5;
-A8 = 69;
-A12 = 33.032;
-
-
-A9 = 15.876;
-A11 = 12;
-%}
-
-%{
-jOneMat_linetest0 = trchain('Rx(q1)Tx(A1)Rz(q2)Tx(A7)', [q1, q2]);
-jOneMat_linetest = trchain('Rx(q1)Tx(A1)Rz(q2)Tx(A7)Rz(test)Tx(A9)', [q1, q2, test]);
-criticalTest = [
-    jOneMat_linetest0(1,4) jOneMat_linetest0(2,4) jOneMat_linetest0(3,4)
-    jOneMat_linetest(1,4) jOneMat_linetest(2,4) jOneMat_linetest(3,4)
-];
-lineTester = line(criticalTest(:,1), criticalTest(:,2), criticalTest(:,3));
-%}
-
-
-
 scatter3(maxCoordinates(:,1), maxCoordinates(:,2), maxCoordinates(:,3), 16, 'black', 'filled')
 vlm = alphaShape(maxCoordinates);
 h = plot(vlm);
-
-
-%vlm = alphaShape(finger_coord);
-%h = plot(vlm);
-%volume(vlm);
-%vol = volume(vlm)/16387.064
-
-%patch(finger1_pad1(:,1), finger1_pad1(:,2), finger1_pad1(:,3))
-%{
-vlm = alphaShape(finger_coord);
-%h = plot(vlm);
-volume(vlm)
-volume(vlm)/16387.064
-
-ptCloud = pointCloud(criticalPoints);
-model = pcfitcylinder(ptCloud, 1, 'MaxNumTrials', 1000, 'Confidence', 99)
-plot(model);
-%volume(model)
-%}
-
-
-
-
-
-
-
-
-
-
-
-
-
-%hold on;
-%scatter3(jOneMat_triPrism_test2(1,4), jOneMat_triPrism_test2(2,4), jOneMat_triPrism_test2(3,4), 16, 'cyan', 'filled')
-%scatter3(jOneMat_triPrism_test3(1,4), jOneMat_triPrism_test3(2,4), jOneMat_triPrism_test3(3,4), 16, 'black', 'filled')
-%scatter3(jOneMat_triPrism_test4(1,4), jOneMat_triPrism_test4(2,4), jOneMat_triPrism_test4(3,4), 16, 'cyan', 'filled')
-
-
-%scatter3(110.374, -10.7166, -6.18711, 'filled')
-
-%{
-shp = alphaShape(criticalPoints);
-h = plot(shp);
-volume(shp)
-volume(shp)/16387.064
-%}
-
-%criticalPoints/25.4 %mm to inches conversion
-%scatter3(criticalPoints(:,1), criticalPoints(:,2), criticalPoints(:,3), 'filled')
-%scatter3(criticalPoints(1,1), criticalPoints(1,2), criticalPoints(1,3), 'filled')
-%hold on;
-%scatter3(criticalPoints(2,1), criticalPoints(2,2), criticalPoints(2,3), 'filled')
-%endEffPoint = [endEffMat(1,4); endEffMat(2,4); endEffMat(3,4)];
-%x = endEffMat(1,4);
-%y = endEffMat(2,4);
-%z = endEffMat(3,4);
-%endEffCoord = sprintf('end effector coordinate: (%d,%d,%d)', x,y,z);
