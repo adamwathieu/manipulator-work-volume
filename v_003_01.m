@@ -1,18 +1,19 @@
 %v_003_01.m 
 %Author:  Adam Wathieu
-%Date:    June 18, 2019
+%Date:    July 5, 2019
 %Mentor:  Joe Falco
 %Project: Investigating the Standardization of Robotic Manipulators
 %Robotic Hand: Schunk Dexterous Hand
 %
 %
 %DESCRIPTION
-%This is third program written for the project. This is my first attempt at
-%finding the largest polyhedron that the SDH is capable of holding. Later
-%programs (v_003_03.m) provide a more efficient way of finding the same 
-%shape. This program finds the largest polyhedron by iterating through all 
-%joint angles, and computing the computations described in v_002.m. 
-%Please look through programs written prior to this one to understand the 
+%This is fourth program written for the project. This is my second attempt 
+%at finding the largest polyhedron that the SDH is capable of holding. I
+%dispersed where I was doing the forward kinematic calculations within the
+%nested for loops, making the computer need to calculate the forward 
+%kinematics less often. This greatly improved the runtime. Future programs 
+%(v_003_03.m) provide a more efficient way of finding the same shape. 
+%Please look through programs written prior to this one to understand the
 %extent of the code.
 
 A1 = 98; %length from joint 1 to joint 2 (hypothetically), constant
