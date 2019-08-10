@@ -8,7 +8,7 @@
 %
 %DESCRIPTION
 %This is second program written for the project. I added a "triangle
-%system," where fingers of the SDH were given voloume, rather than being
+%system," where fingers of the SDH were given volume, rather than being
 %implemented as lines. This uses more forward kinematics, and is explained 
 %in more detail below and in the documentation. This made the polyhedron
 %volume measurements more accurate. Please look through v_001.m prior to
@@ -166,13 +166,13 @@ scatter3(triCoord1(:,1), triCoord1(:,2), triCoord1(:,3), 'filled')
 test = pi/2;
 test2 = -test;
 test3 = test;
-A7 = 17.5;
-A8 = 69;
+A7 = 17.5; %distance from joint 2 to beginning of black pad
+A8 = 69; %distance from joint 2 to end of black pad
 
-A9 = 15.876;
-A11 = 12;
+A9 = 15.876; %distance from the middle of joint to beginning of black surface on finger
+A11 = 12; %half of width of black pads on surface of finger
 
-A12 = 33.032;
+A12 = 33.032; %distance from joint 3 to end of flat part of second pad
 
 
 %-------------------FINGER ONE TRIANGLE COORDINATES-----------------------%
