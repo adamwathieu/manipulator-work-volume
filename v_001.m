@@ -7,7 +7,7 @@
 %
 %
 %DESCRIPTION
-%This is first program written for the project. I was experimenting with
+%This is the first program written for the project. I was experimenting with
 %the Robotics Toolbox and its forward kinematics functions (more on that 
 %below and in documentation). You input the angles of the Schunk Dexterous 
 %Hand joints, and it gives you a plot of the coordinates of the fingers, 
@@ -50,9 +50,12 @@ while (q3 > pi/2 || q3 < -pi/2)
     q3 = input(prompt_3); %error checking
 end
 
-%Using Corke's Robotics Toolbox trchain fuction to compute forward
-%kinematics math, more information in the documentation of his toolbox,
-%which is attached in the documentation of this project.
+%The trchain function returns a 4x4 forward kinematics matrix describing 
+%the orientation and position of the end effector of a manipulator. Two 
+%parameters are passed into the function, a string which describes the 
+%kinematics of the manipulator being analyzed (in our case, a finger of the 
+%SDH), and a matrix of the joint angles. 
+
 jOneMat_1 = trchain('Rx(q1)Tx(A1)', [q1]); 
 jTwoMat_1 = trchain('Rx(q1)Tx(A1)Rz(q2)Tx(A2)', [q1, q2]);
 endEffMat_1 = trchain('Rx(q1)Tx(A1)Rz(q2)Tx(A2)Rz(q3)Tx(A3)', [q1, q2, q3]);
@@ -94,7 +97,9 @@ endEffMat_3 = trchain('Rx(q4)Tx(A1)Rz(q5)Tx(A2)Rz(q6)Tx(A3)', [0, q7, q8]);
 %--------^^^-----------/FINGER THREE COMPUTATIONS----------^^^------------%
 
 
-
+%extracting cartesian coordinates from forward kinematic matrices. More
+%information on layout of forward kinmeatic matrices can be found in
+%documentation.
 criticalPoints = [
     jOneMat_1(1,4) jOneMat_1(2,4) jOneMat_1(3,4)
     jTwoMat_1(1,4) jTwoMat_1(2,4) jTwoMat_1(3,4)
