@@ -1,3 +1,19 @@
+%v_004.m 
+%Author:  Adam Wathieu
+%Date:    July 13, 2019
+%Mentor:  Joe Falco
+%Project: Investigating the Standardization of Robotic Manipulators
+%Robotic Hand: Schunk Dexterous Hand
+%
+%
+%DESCRIPTION
+%This is sixth program written for the project. This program computes the
+%largest cube that can be held by the SDH, where the links of fingers 1 and
+%2 have their last link around the edges of the cube. The cube is
+%calculated to measure 207.248 mm in side length. A plot is outputted and
+%the cube is seen. An open source function found online was used to plot
+%the cube.
+
 A1 = 98; %length from joint 1 to joint 2 (hypothetically), constant
 A2 = 86.5; %length from joint 2 to joint 3, constant 
 A3 = 68.5; %length from joint 3 to fingertip, constant 
@@ -25,7 +41,8 @@ q8 = pi/6;
 %}
 %~Numbers for testing.
 
-
+%These angles are hard coded because there is only one configuration of the
+%SDH that maximizes the cube dimensions.
 q1 = pi/2;
 q2 = -pi/2;
 q3 = pi/2;
@@ -305,9 +322,9 @@ scatter3(n(1,1), n(1,2), n(1,3), 16, 'black', 'filled')
 cubeSideLengthMM = norm(cubeSide)
 cubeSideLengthInches = cubeSideLengthMM/25.4
 cubeVolume = cubeSideLengthInches^3
-L = [cubeSideLengthMM cubeSideLengthMM cubeSideLengthMM];
-P = [219.124 24.158 33];
-o = P-L/2;
+L = [cubeSideLengthMM cubeSideLengthMM cubeSideLengthMM]; %lengths of edges
+P = [219.124 24.158 33]; %center
+o = P-L/2; %origin
 plotcube(L, o, 0.5, [1 0 0])
 
 %patch(finger1_pad1(:,1), finger1_pad1(:,2), finger1_pad1(:,3))
