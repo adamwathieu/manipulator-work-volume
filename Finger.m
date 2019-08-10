@@ -73,7 +73,7 @@ end
 function criticalCoordinates = getLineCoordinates(obj, JointAngles)
     chainStream = eye(4);
     criticalCoordinates = [0 0 0];
-    for i = 1:obj.Links
+    for i = 1:obj.Links %for the number of links in this finger
         switch obj.JointDirection(1,i)
             case 'x'
                 chainStream = chainStream * trotx(JointAngles(1,i));
