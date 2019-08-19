@@ -1,6 +1,11 @@
 classdef Finger < handle
-    %FINGER Summary of this class goes here
-    %   Detailed explanation goes here
+    %FINGER Basic finger object for robotic hands, using SDH as PoC
+    %   This class is an object which is used by the hand class to describe
+    %   the fingers of the hand. Further work on this class could include
+    %   the use of the triangle system found in v_002.m, generalized enough
+    %   so that it is easy and intuitive for a user to describe the
+    %   thickness and geometry of the finger. Currently, this class only
+    %   represents fingers as lines.
     
     properties
         Links           %number of links 
@@ -20,8 +25,12 @@ classdef Finger < handle
     
     methods
         function obj = Finger(Links, LinkLength, LinkDirection, Joints, JointDirection) %add this when ready: LinkPlanes, PlanesDirection,
-            %FINGER Construct an instance of this class
-            %   Detailed explanation goes here
+            %FINGER Default constructor of Finger class
+            %   User creates instance of class, inputting the number of
+            %   links, the length of each link, the direction of each link,
+            %   the number of joints, and the direction in which the joints
+            %   revolve around. A finger always starts with a joint, and
+            %   ends with a link.
             obj.Links = Links;
             obj.LinkLength = LinkLength;
             obj.LinkDirection = LinkDirection;
@@ -35,8 +44,15 @@ classdef Finger < handle
         end
         
         function Configure(obj, JointAngles)
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
+            %CONFIGURE Updates the coordinates of the finger based off of
+            %JointAngles matrix passed in by parameter
+            %   This function uses the getLineCoordinates function to get
+            %   the coordinates for the joints and end effector of the
+            %   hand. In this way, this function essentially updates the
+            %   position of the hand and its lineCoordinates. Parameters:
+            %   obj - the finger being configured, JointAngles - a 1xJoints
+            %   matrix with angles, in radians, of the new joints
+            %   configuration.
             
             %Call funtion with trchain and 
 
@@ -71,9 +87,15 @@ classdef Finger < handle
 end
 
 function criticalCoordinates = getLineCoordinates(obj, JointAngles)
-    chainStream = eye(4);
+    %CRITICALCOORDINATES computes the coordinates of the finger with the
+    %given joint angles in the JointAngles matrix
+    %   This uses the same forward kinematic matrix computations as v_002.m
+    %   but with trot and trans instead of trchain with rotations and
+    %   translations passed in as parameters. More information about this
+    %   can be found in documentation.
+    chainStream = eye(4); %4x4 identity matrix
     criticalCoordinates = [0 0 0];
-    for i = 1:obj.Links %for the number of links in this finger
+    for i = 1:obj.Links %for every link in this finger add a Joint and a Link into the matrix computations
         switch obj.JointDirection(1,i)
             case 'x'
                 chainStream = chainStream * trotx(JointAngles(1,i));
@@ -98,6 +120,8 @@ function criticalCoordinates = getLineCoordinates(obj, JointAngles)
     
 end
 
+%basic structure of getFingerCoordinates with triangle system to give
+%fingers volume and geometry. Unfinished.
 %{
 function criticalCoordinates = getFingerCoordinates(obj, JointAngles)
     chainStream = eye(4);
