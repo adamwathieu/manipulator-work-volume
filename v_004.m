@@ -8,11 +8,12 @@
 %
 %DESCRIPTION
 %This is sixth program written for the project. This program computes the
-%largest cube that can be held by the SDH, where the links of fingers 1 and
-%2 have their last link around the edges of the cube. The cube is
+%largest cube that can be held by the SDH, where the last links of fingers 
+%1 and 2 have their last link around the edges of the cube. The cube is
 %calculated to measure 207.248 mm in side length. A plot is outputted and
 %the cube is seen. An open source function found online was used to plot
-%the cube.
+%the cube. The joint angles are preconfigured to the angles that maximize 
+%the dimensions of the cube.
 
 A1 = 98; %length from joint 1 to joint 2 (hypothetically), constant
 A2 = 86.5; %length from joint 2 to joint 3, constant 
