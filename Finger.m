@@ -62,12 +62,6 @@ classdef Finger < handle
            %obj.FingerCoordinates = getFingerCoordinates(obj, JointAngles);
         end
         
-        %{
-        function coordinates = getLineCoordinates(obj)
-           coordinates = obj.LineCoordinates; 
-        end    
-        %}
-        
         
         %{
         function coordinates = getFingerCoordinates(obj)
